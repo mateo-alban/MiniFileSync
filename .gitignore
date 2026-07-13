@@ -1,0 +1,7 @@
+MiniFileSync
+minisync
+MiniFileSync.log
+minifilesync_fifo
+*.o
+backu/
+README.md.save
