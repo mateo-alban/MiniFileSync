@@ -28,8 +28,6 @@ int main(
 
 
 
-    iniciarDaemon();
-
 
 
     crearPID();

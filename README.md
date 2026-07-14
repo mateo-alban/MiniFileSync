@@ -78,7 +78,7 @@ Directiro backu/
 
 El proyecto utiliza un Makefile.
 
-Para compilar:
+Para compilar: ./MiniFileSync
 
 ```bash
 make

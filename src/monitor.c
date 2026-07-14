@@ -83,15 +83,19 @@ void iniciarMonitor(const char *directorio)
                     if(actual[i].tamaño != anterior[j].tamaño || actual[i].modificacion != anterior[j].modificacion)
                     {
 
+                        fprintf(stderr, "\nENTRO AL CAMBIO\n");
 
-                        printf( "Cambio detectado: %s\n",actual[i].ruta);
+                        fprintf(stderr, "Cambio detectado: %s\n", actual[i].ruta);
+
+                        fprintf(stderr, "Nombre: %s\n", actual[i].nombre);
+
+                        fprintf(stderr, "Tamano: %ld\n", actual[i].tamaño);
+
+                        fprintf(stderr, "Modificacion: %ld\n", actual[i].modificacion);
 
 
                         enviarTrabajo(actual[i].ruta);
-
-
                     }
-
 
                 }
 
@@ -99,10 +103,10 @@ void iniciarMonitor(const char *directorio)
             }
 
 
+        
+
+    
         }
-
-
-
         memcpy(anterior, actual, sizeof(actual));
 
 
