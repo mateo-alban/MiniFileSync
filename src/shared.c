@@ -35,11 +35,7 @@ void iniciarMemoriaCompartida()
     int fd;
 
 
-    fd = shm_open(
-        SHARED_NAME,
-        O_CREAT | O_RDWR,
-        0666
-    );
+    fd = shm_open(SHARED_NAME, O_CREAT | O_RDWR, 0666);
 
 
     if(fd < 0)
@@ -49,21 +45,11 @@ void iniciarMemoriaCompartida()
 
 
 
-    ftruncate(
-        fd,
-        sizeof(DatosCompartidos)
-    );
+    ftruncate(fd, sizeof(DatosCompartidos));
 
 
 
-    datos = mmap(
-        NULL,
-        sizeof(DatosCompartidos),
-        PROT_READ | PROT_WRITE,
-        MAP_SHARED,
-        fd,
-        0
-    );
+    datos = mmap(NULL, sizeof(DatosCompartidos), PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
 
 
 
@@ -81,14 +67,9 @@ void iniciarMemoriaCompartida()
 void cerrarMemoriaCompartida()
 {
 
-    munmap(
-        datos,
-        sizeof(DatosCompartidos)
-    );
+    munmap( datos, sizeof(DatosCompartidos));
 
 
-    shm_unlink(
-        SHARED_NAME
-    );
+    shm_unlink( SHARED_NAME);
 
 }

@@ -11,9 +11,7 @@
 
 
 
-void iniciarWorker(
-    int pipeLectura
-)
+void iniciarWorker(int pipeLectura)
 {
 
     char archivo[512];
@@ -24,11 +22,7 @@ void iniciarWorker(
     {
 
 
-        int bytes = read(
-            pipeLectura,
-            archivo,
-            sizeof(archivo)-1
-        );
+        int bytes = read(pipeLectura, archivo, sizeof(archivo)-1);
 
 
 
@@ -40,10 +34,7 @@ void iniciarWorker(
 
 
 
-            printf(
-                "Worker copiando: %s\n",
-                archivo
-            );
+            printf("Worker copiando: %s\n", archivo);
 
 
 
@@ -51,11 +42,7 @@ void iniciarWorker(
 
 
 
-            char *nombre =
-                strrchr(
-                    archivo,
-                    '/'
-                );
+            char *nombre = strrchr(archivo,'/');
 
 
 

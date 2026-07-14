@@ -5,11 +5,7 @@
 #include "fileinfo.h"
 
 
-int obtenerArchivos(
-    const char *ruta,
-    ArchivoInfo archivos[],
-    int max
-);
+int obtenerArchivos(const char *ruta, ArchivoInfo archivos[], int max);
 
 
 #endif

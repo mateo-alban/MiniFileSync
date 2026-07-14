@@ -14,10 +14,7 @@ void crearPID()
     FILE *archivo;
 
 
-    archivo = fopen(
-        PID_FILE,
-        "w"
-    );
+    archivo = fopen(PID_FILE,"w");
 
 
     if(archivo == NULL)
@@ -27,11 +24,7 @@ void crearPID()
 
 
 
-    fprintf(
-        archivo,
-        "%d\n",
-        getpid()
-    );
+    fprintf( archivo,"%d\n",getpid());
 
 
 

@@ -51,10 +51,7 @@ void iniciarDaemon()
 
 
 
-    int fd = open(
-        "/dev/null",
-        O_RDWR
-    );
+    int fd = open("/dev/null",O_RDWR);
 
 
     if(fd != -1)

@@ -2,9 +2,7 @@
 #define MONITOR_H
 
 
-void iniciarMonitor(
-    const char *directorio
-);
+void iniciarMonitor(const char *directorio);
 
 
 #endif

@@ -2,10 +2,7 @@
 #define COPY_H
 
 
-void copiarArchivo(
-    const char *origen,
-    const char *destino
-);
+void copiarArchivo(const char *origen,const char *destino);
 
 
 #endif

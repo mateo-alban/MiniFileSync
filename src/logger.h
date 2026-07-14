@@ -5,9 +5,7 @@
 void iniciarLogger();
 
 
-void escribirLog(
-    const char *mensaje
-);
+void escribirLog(const char *mensaje);
 
 
 #endif

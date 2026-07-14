@@ -44,9 +44,7 @@ int main(
 
 
 
-    iniciarMonitor(
-        "test"
-    );
+    iniciarMonitor("test");
 
 
 

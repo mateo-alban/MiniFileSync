@@ -5,9 +5,7 @@
 void iniciarWorkers();
 
 
-void enviarTrabajo(
-    const char *archivo
-);
+void enviarTrabajo(const char *archivo);
 
 
 #endif

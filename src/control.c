@@ -18,10 +18,7 @@ void detenerDaemon()
 
 
 
-    archivo = fopen(
-        PID_FILE,
-        "r"
-    );
+    archivo = fopen(PID_FILE,"r");
 
 
     if(archivo == NULL)
@@ -31,26 +28,17 @@ void detenerDaemon()
 
 
 
-    fscanf(
-        archivo,
-        "%d",
-        &pid
-    );
+    fscanf(archivo,"%d", &pid);
 
 
     fclose(archivo);
 
 
 
-    kill(
-        pid,
-        SIGTERM
-    );
+    kill(pid,SIGTERM);
 
 
 
-    unlink(
-        PID_FILE
-    );
+    unlink(PID_FILE);
 
 }

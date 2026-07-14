@@ -9,11 +9,7 @@
 
 
 
-int obtenerArchivos(
-    const char *ruta,
-    ArchivoInfo archivos[],
-    int max
-)
+int obtenerArchivos(const char *ruta, ArchivoInfo archivos[],int max)
 {
 
     DIR *directorio;
@@ -30,9 +26,7 @@ int obtenerArchivos(
 
 
 
-    directorio = opendir(
-        ruta
-    );
+    directorio = opendir(ruta);
 
 
 
@@ -43,18 +37,11 @@ int obtenerArchivos(
 
 
 
-    while(
-        (entrada = readdir(directorio)) != NULL
-        &&
-        cantidad < max
-    )
+    while((entrada = readdir(directorio)) != NULL && cantidad < max)
     {
 
 
-        if(
-            strcmp(entrada->d_name,".") == 0 ||
-            strcmp(entrada->d_name,"..") == 0
-        )
+        if(strcmp(entrada->d_name,".") == 0 || strcmp(entrada->d_name,"..") == 0)
         {
             continue;
         }
@@ -64,44 +51,27 @@ int obtenerArchivos(
         char rutaCompleta[512];
 
 
-        snprintf(
-            rutaCompleta,
-            sizeof(rutaCompleta),
-            "%s/%s",
-            ruta,
-            entrada->d_name
-        );
+        snprintf(rutaCompleta, sizeof(rutaCompleta), "%s/%s", ruta, entrada->d_name);
 
 
 
-        stat(
-            rutaCompleta,
-            &info
-        );
+        stat( rutaCompleta, &info);
 
 
 
-        strcpy(
-            archivos[cantidad].nombre,
-            entrada->d_name
-        );
+        strcpy( archivos[cantidad].nombre, entrada->d_name);
 
 
 
-        strcpy(
-            archivos[cantidad].ruta,
-            rutaCompleta
-        );
+        strcpy( archivos[cantidad].ruta, rutaCompleta);
 
 
 
-        archivos[cantidad].tamaño =
-            info.st_size;
+        archivos[cantidad].tamaño = info.st_size;
 
 
 
-        archivos[cantidad].modificacion =
-            info.st_mtime;
+        archivos[cantidad].modificacion = info.st_mtime;
 
 
 
@@ -122,9 +92,7 @@ int obtenerArchivos(
 
 
 
-    closedir(
-        directorio
-    );
+    closedir(directorio);
 
 
 

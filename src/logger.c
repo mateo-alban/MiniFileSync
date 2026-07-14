@@ -16,27 +16,19 @@
 void iniciarLogger()
 {
 
-    mkfifo(
-        FIFO,
-        0666
-    );
+    mkfifo(FIFO, 0666);
 
 }
 
 
 
-void escribirLog(
-    const char *mensaje
-)
+void escribirLog(const char *mensaje)
 {
 
     int fd;
 
 
-    fd = open(
-        FIFO,
-        O_WRONLY | O_NONBLOCK
-    );
+    fd = open(FIFO, O_WRONLY | O_NONBLOCK);
 
 
 
@@ -47,11 +39,7 @@ void escribirLog(
 
 
 
-    write(
-        fd,
-        mensaje,
-        strlen(mensaje)
-    );
+    write(fd,mensaje,strlen(mensaje));
 
 
 

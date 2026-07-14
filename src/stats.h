@@ -2,14 +2,10 @@
 #define STATS_H
 
 
-void registrarCopia(
-    const char *archivo
-);
+void registrarCopia(const char *archivo);
 
 
-void registrarBytes(
-    long bytes
-);
+void registrarBytes(long bytes);
 
 
 void registrarError();

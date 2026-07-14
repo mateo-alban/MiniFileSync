@@ -19,43 +19,31 @@ PTHREAD_MUTEX_INITIALIZER;
 
 
 
-void registrarCopia(
-    const char *archivo
-)
+void registrarCopia(const char *archivo)
 {
 
-    pthread_mutex_lock(
-        &mutex
-    );
+    pthread_mutex_lock( &mutex);
 
 
     archivosCopiados++;
 
 
-    pthread_mutex_unlock(
-        &mutex
-    );
+    pthread_mutex_unlock(&mutex);
 
 }
 
 
 
-void registrarBytes(
-    long bytes
-)
+void registrarBytes(long bytes)
 {
 
-    pthread_mutex_lock(
-        &mutex
-    );
+    pthread_mutex_lock(&mutex);
 
 
     bytesCopiados += bytes;
 
 
-    pthread_mutex_unlock(
-        &mutex
-    );
+    pthread_mutex_unlock(&mutex);
 
 }
 
@@ -64,17 +52,13 @@ void registrarBytes(
 void registrarError()
 {
 
-    pthread_mutex_lock(
-        &mutex
-    );
+    pthread_mutex_lock(&mutex);
 
 
     errores++;
 
 
-    pthread_mutex_unlock(
-        &mutex
-    );
+    pthread_mutex_unlock(&mutex);
 
 }
 
@@ -83,41 +67,24 @@ void registrarError()
 void mostrarEstadisticas()
 {
 
-    pthread_mutex_lock(
-        &mutex
-    );
+    pthread_mutex_lock(&mutex);
 
 
-    printf(
-        "\n========== ESTADISTICAS ==========\n"
-    );
+    printf("\n      ESTADISTICAS\n");
 
 
-    printf(
-        "Archivos copiados: %d\n",
-        archivosCopiados
-    );
+    printf("Archivos copiados: %d\n", archivosCopiados);
 
 
-    printf(
-        "Bytes copiados: %ld\n",
-        bytesCopiados
-    );
+    printf( "Bytes copiados: %ld\n", bytesCopiados);
 
 
-    printf(
-        "Errores: %d\n",
-        errores
-    );
+    printf("Errores: %d\n", errores);
 
 
-    printf(
-        "==================================\n"
-    );
+    printf("-------------------------\n");
 
 
-    pthread_mutex_unlock(
-        &mutex
-    );
+    pthread_mutex_unlock(&mutex);
 
 }

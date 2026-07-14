@@ -9,10 +9,7 @@
 
 
 
-void copiarArchivo(
-    const char *origen,
-    const char *destino
-)
+void copiarArchivo( const char *origen,const char *destino)
 {
 
     int entrada;
@@ -29,10 +26,7 @@ void copiarArchivo(
 
 
 
-    entrada = open(
-        origen,
-        O_RDONLY
-    );
+    entrada = open(origen, O_RDONLY);
 
 
 
@@ -47,11 +41,7 @@ void copiarArchivo(
 
 
 
-    salida = open(
-        destino,
-        O_WRONLY | O_CREAT | O_TRUNC,
-        0644
-    );
+    salida = open( destino,O_WRONLY | O_CREAT | O_TRUNC,0644);
 
 
 
@@ -72,21 +62,11 @@ void copiarArchivo(
 
 
 
-    while(
-        (bytes = read(
-            entrada,
-            buffer,
-            sizeof(buffer)
-        )) > 0
-    )
+    while( (bytes = read(entrada, buffer,sizeof(buffer) )) > 0)
     {
 
 
-        write(
-            salida,
-            buffer,
-            bytes
-        );
+        write( salida, buffer,bytes);
 
 
         total += bytes;
@@ -96,27 +76,18 @@ void copiarArchivo(
 
 
 
-    close(
-        entrada
-    );
+    close(entrada);
 
 
-    close(
-        salida
-    );
+    close(salida);
 
 
 
-    registrarBytes(
-        total
-    );
+    registrarBytes(total);
 
 
 
-    printf(
-        "Archivo copiado: %s\n",
-        destino
-    );
+    printf("Archivo copiado: %s\n", destino );
 
 
 }

@@ -19,9 +19,7 @@
 void cerrarPrograma(int signal)
 {
 
-    remove(
-        "/tmp/MiniFileSync.pid"
-    );
+    remove( "/tmp/MiniFileSync.pid");
 
 
     exit(0);
@@ -31,15 +29,10 @@ void cerrarPrograma(int signal)
 
 
 
-void iniciarMonitor(
-    const char *directorio
-)
+void iniciarMonitor(const char *directorio)
 {
 
-    signal(
-        SIGTERM,
-        cerrarPrograma
-    );
+    signal( SIGTERM,cerrarPrograma);
 
 
 
@@ -57,12 +50,7 @@ void iniciarMonitor(
 
 
 
-    cantidadAnterior =
-        obtenerArchivos(
-            directorio,
-            anterior,
-            100
-        );
+    cantidadAnterior = obtenerArchivos(directorio,anterior,100);
 
 
 
@@ -74,60 +62,32 @@ void iniciarMonitor(
 
 
 
-        printf(
-            "\n--- Revisando cambios ---\n"
-        );
+        printf("\n--- Revisando cambios ---\n");
 
 
 
-        int cantidadActual =
-            obtenerArchivos(
-                directorio,
-                actual,
-                100
-            );
+        int cantidadActual = obtenerArchivos(directorio, actual, 100);
 
 
 
-        for(
-            int i = 0;
-            i < cantidadActual;
-            i++
-        )
+        for(int i = 0; i < cantidadActual; i++)
         {
 
-            for(
-                int j = 0;
-                j < cantidadAnterior;
-                j++
-            )
+            for(int j = 0; j < cantidadAnterior; j++)
             {
 
-                if(
-                    strcmp(
-                        actual[i].ruta,
-                        anterior[j].ruta
-                    ) == 0
-                )
+                if(strcmp(actual[i].ruta, anterior[j].ruta) == 0)
                 {
 
 
-                    if(
-                        actual[i].tamaño != anterior[j].tamaño ||
-                        actual[i].modificacion != anterior[j].modificacion
-                    )
+                    if(actual[i].tamaño != anterior[j].tamaño || actual[i].modificacion != anterior[j].modificacion)
                     {
 
 
-                        printf(
-                            "Cambio detectado: %s\n",
-                            actual[i].ruta
-                        );
+                        printf( "Cambio detectado: %s\n",actual[i].ruta);
 
 
-                        enviarTrabajo(
-                            actual[i].ruta
-                        );
+                        enviarTrabajo(actual[i].ruta);
 
 
                     }
@@ -143,15 +103,10 @@ void iniciarMonitor(
 
 
 
-        memcpy(
-            anterior,
-            actual,
-            sizeof(actual)
-        );
+        memcpy(anterior, actual, sizeof(actual));
 
 
-        cantidadAnterior =
-            cantidadActual;
+        cantidadAnterior = cantidadActual;
 
 
 

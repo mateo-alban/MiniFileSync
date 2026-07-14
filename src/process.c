@@ -17,9 +17,7 @@ int pipeWorker[2];
 void iniciarWorkers()
 {
 
-    pipe(
-        pipeWorker
-    );
+    pipe( pipeWorker);
 
 
 
@@ -30,14 +28,10 @@ void iniciarWorkers()
     if(worker1 == 0)
     {
 
-        close(
-            pipeWorker[1]
-        );
+        close(pipeWorker[1]);
 
 
-        iniciarWorker(
-            pipeWorker[0]
-        );
+        iniciarWorker(pipeWorker[0]);
 
 
         exit(0);
@@ -53,14 +47,10 @@ void iniciarWorkers()
     if(worker2 == 0)
     {
 
-        close(
-            pipeWorker[1]
-        );
+        close(pipeWorker[1]);
 
 
-        iniciarWorker(
-            pipeWorker[0]
-        );
+        iniciarWorker(pipeWorker[0]);
 
 
         exit(0);
@@ -69,25 +59,17 @@ void iniciarWorkers()
 
 
 
-    close(
-        pipeWorker[0]
-    );
+    close(pipeWorker[0]);
 
 
 }
 
 
 
-void enviarTrabajo(
-    const char *archivo
-)
+void enviarTrabajo(const char *archivo)
 {
 
-    write(
-        pipeWorker[1],
-        archivo,
-        strlen(archivo) + 1
-    );
+    write(pipeWorker[1],archivo,strlen(archivo) + 1);
 
 
 }
