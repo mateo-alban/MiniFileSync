@@ -19,3 +19,4 @@ prueba monitor
 prueba monitor
 prueba
 prueba cambio
+nuevo cambio inode

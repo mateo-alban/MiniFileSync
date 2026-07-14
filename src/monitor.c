@@ -80,19 +80,22 @@ void iniciarMonitor(const char *directorio)
                 {
 
 
-                    if(actual[i].tamaño != anterior[j].tamaño || actual[i].modificacion != anterior[j].modificacion)
+                    if(actual[i].tamano != anterior[j].tamano || actual[i].modificacion != anterior[j].modificacion)
                     {
 
-                        fprintf(stderr, "\nENTRO AL CAMBIO\n");
+                        printf("Nombre: %s\n", actual[i].nombre);
 
-                        fprintf(stderr, "Cambio detectado: %s\n", actual[i].ruta);
+                        printf("Inodo: %ld\n", actual[i].inodo);
 
-                        fprintf(stderr, "Nombre: %s\n", actual[i].nombre);
+                        printf("Tamano: %ld bytes\n",actual[i].tamano);
 
-                        fprintf(stderr, "Tamano: %ld\n", actual[i].tamaño);
+                        printf("Permisos: %o\n",actual[i].permisos);
 
-                        fprintf(stderr, "Modificacion: %ld\n", actual[i].modificacion);
+                        printf("Propietario UID: %d\n", actual[i].propietario);
 
+                        printf("Grupo GID: %d\n",actual[i].grupo);
+
+                        printf("Ultima modificacion: %ld\n",actual[i].modificacion);
 
                         enviarTrabajo(actual[i].ruta);
                     }
